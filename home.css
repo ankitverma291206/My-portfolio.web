@@ -1,13 +1,16 @@
-body {
+html, body {
   margin: 0px;
   padding: 0px;
   background-color: black;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* Canvas fills the space */
 canvas { 
   display: block;
-  background-color: black;            /* Removes inline gaps */
+  background-color: black;
+  max-width: 100%;
 }
 
 /* Wave wrapper — scrolls with the page */
