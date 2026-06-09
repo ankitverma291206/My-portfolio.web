@@ -5,17 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" />
     <link rel="stylesheet" href="home.css"> <!-- Link CSS -->
+    <link rel="stylesheet" href="navbar.css" />
 </head>
 
 <body>
     <main>
         <div>
             <canvas id="c"></canvas> <!-- Canvas for red wave -->
+            <nav class="iconbar theme-home" aria-label="Primary navigation">
+                <a href="/home" class="active"><i class="ti ti-home" aria-hidden="true"></i><span class="label">Home</span></a>
+                <a href="/projects"><i class="ti ti-layout-grid" aria-hidden="true"></i><span class="label">Projects</span></a>
+                <a href="/experience"><i class="ti ti-briefcase" aria-hidden="true"></i><span class="label">Experience</span></a>
+                <a href="/prodev"><i class="ti ti-rocket" aria-hidden="true"></i><span class="label">Pro Dev</span></a>
+                <a href="/games"><i class="ti ti-device-gamepad-2" aria-hidden="true"></i><span class="label">Games</span></a>
+                <a href="/contact"><i class="ti ti-send" aria-hidden="true"></i><span class="label">Contact</span></a>
+            </nav>
             <script src="home.js"></script> <!-- Link JS -->
-            <div class = "iconbar">
-                
-            </div>
         </div>
     </main>
 </body>
