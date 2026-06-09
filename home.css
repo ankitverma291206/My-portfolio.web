@@ -41,5 +41,24 @@ main > nav.iconbar {
 .about_me {
   width: 100vw;
   height: 1000px;
-  background-color: aqua;
+  /* background-color: aqua; */
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.about_me .description {
+  position: relative;
+  width: 25vw;
+  left: 18vw;
+  top: 20vh;
+}
+
+.about_me .description h1 {
+  color: white;
+  font-size: 100px;
+}
+
+.about_me .description p {
+  color: white;
 }
