@@ -10,3 +10,30 @@ canvas {
   background-color: black;            /* Removes inline gaps */
 }
 
+/* Sticky wrapper that holds the wave + navbar */
+.wave-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px; /* matches WAVE_HEIGHT in JS */
+}
+
+/* Canvas sits behind the navbar, filling the wrapper */
+.wave-wrapper canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Navbar floats above the canvas */
+.wave-wrapper nav.iconbar {
+  position: relative;
+  z-index: 1;
+}

@@ -6,16 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="home.css"> <!-- Link CSS -->
+    <link rel="stylesheet" href="navbar.css"> <!-- Navbar CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" />
 </head>
 
 <body>
     <main>
-        <div>
+        <div class="wave-wrapper">
             <canvas id="c"></canvas> <!-- Canvas for red wave -->
             <script src="home.js"></script> <!-- Link JS -->
-            <div class = "iconbar">
-                
-            </div>
+            <nav class="iconbar theme-home">
+                <a href="#" class="active">
+                    <i class="ti ti-home"></i>
+                    <span class="label">Home</span>
+                </a>
+                <a href="#">
+                    <i class="ti ti-layout-grid"></i>
+                    <span class="label">Projects</span>
+                </a>
+                <a href="#">
+                    <i class="ti ti-briefcase"></i>
+                    <span class="label">Experience</span>
+                </a>
+                <a href="#">
+                    <i class="ti ti-rocket"></i>
+                    <span class="label">Pro Dev</span>
+                </a>
+                <a href="#">
+                    <i class="ti ti-device-gamepad-2"></i>
+                    <span class="label">Games</span>
+                </a>
+                <a href="#">
+                    <i class="ti ti-send"></i>
+                    <span class="label">Contact</span>
+                </a>
+            </nav>
         </div>
     </main>
 </body>

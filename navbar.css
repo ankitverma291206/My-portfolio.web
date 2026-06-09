@@ -1,24 +1,23 @@
 /* ============================================================
    ICON NAVBAR — navbar.css
 
-   HOW TO USE:
-   Add class="iconbar" to your <nav>
-   Add a theme class directly on the <nav> element
-   Add class="active" to the current page link
+   STEP 1: Paste these 2 lines inside your <head>:
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" />
 
-   EXAMPLE:
-   <nav class="iconbar theme-projects">
-     <a href="/home"><i class="ti ti-home"></i><span class="label">Home</span></a>
-     <a href="/projects" class="active"><i class="ti ti-layout-grid"></i><span class="label">Projects</span></a>
-   </nav>
+   STEP 2: Add class="iconbar theme-home" to your <nav>
+   STEP 3: Add class="active" to the current page <a> link
+   STEP 4: Use these icon classes inside <i>:
+     Home        →  class="ti ti-home"
+     Projects    →  class="ti ti-layout-grid"
+     Experience  →  class="ti ti-briefcase"
+     Pro Dev     →  class="ti ti-rocket"
+     Games       →  class="ti ti-device-gamepad-2"
+     Contact     →  class="ti ti-send"
 
-   AVAILABLE THEMES:
-   theme-home        white glow
-   theme-projects    blue glow
-   theme-experience  amber glow
-   theme-prodev      green glow
-   theme-games       purple glow
-   theme-contact     pink glow
+   AVAILABLE THEME CLASSES (add to <nav>):
+     theme-home | theme-projects | theme-experience
+     theme-prodev | theme-games | theme-contact
    ============================================================ */
 
 
@@ -106,10 +105,9 @@ nav.iconbar a:not(.active):hover {
 
 
 /* ============================================================
-   THEMES — add one of these classes to your <nav class="iconbar">
+   THEMES
    ============================================================ */
 
-/* white glow */
 nav.iconbar.theme-home {
   --theme-color:   #ffffff;
   --theme-pill-bg: #111111;
@@ -118,7 +116,6 @@ nav.iconbar.theme-home {
   --theme-glow-b:  255;
 }
 
-/* electric blue glow */
 nav.iconbar.theme-projects {
   --theme-color:   #60c8ff;
   --theme-pill-bg: #00111f;
@@ -127,7 +124,6 @@ nav.iconbar.theme-projects {
   --theme-glow-b:  255;
 }
 
-/* amber glow */
 nav.iconbar.theme-experience {
   --theme-color:   #ffc152;
   --theme-pill-bg: #1a0f00;
@@ -136,7 +132,6 @@ nav.iconbar.theme-experience {
   --theme-glow-b:  82;
 }
 
-/* neon green glow */
 nav.iconbar.theme-prodev {
   --theme-color:   #5dffb0;
   --theme-pill-bg: #001810;
@@ -145,7 +140,6 @@ nav.iconbar.theme-prodev {
   --theme-glow-b:  176;
 }
 
-/* purple glow */
 nav.iconbar.theme-games {
   --theme-color:   #c084fc;
   --theme-pill-bg: #0e0018;
@@ -154,7 +148,6 @@ nav.iconbar.theme-games {
   --theme-glow-b:  252;
 }
 
-/* coral pink glow */
 nav.iconbar.theme-contact {
   --theme-color:   #ff7eb3;
   --theme-pill-bg: #1a0010;
@@ -164,7 +157,7 @@ nav.iconbar.theme-contact {
 }
 
 /*
-   ADD YOUR OWN THEME — copy this and fill in your values:
+   CUSTOM THEME — copy & fill in:
 
 nav.iconbar.theme-yourname {
   --theme-color:   #hexcolor;
