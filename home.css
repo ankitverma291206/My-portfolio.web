@@ -55,16 +55,17 @@ main > nav.iconbar {
   position: relative;
   width: 25vw;
   left: 18vw;
-  top: 20vh;
+  top: 10vh;
 }
 
 .description h1 {
   color: white;
-  font-size: 100px;
+  font-size: 160px;
 }
 
 .description p {
   color: white;
+  font-size: 20px;
 }
 
 .photo {
@@ -74,7 +75,7 @@ main > nav.iconbar {
   height: 20vw;
   position: relative;
   left: 33vw;
-  top: 20vh;
+  top: 22vh;
   border-radius: 50%;
 }
 
@@ -110,8 +111,4 @@ main > nav.iconbar {
 
 @keyflames goku_animation {
 
-}
-
-.skills img {
-  height: 900px;
 }
