@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ankito — Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ══════════════════════════════════════════
+       PROJECTS  ·  Theme: Electric Blue / Deep Navy
+       Wave: #60c8ff   BG: #02060f
+       ══════════════════════════════════════════ */
+    :root { --accent:#60c8ff; --accent-dim:rgba(96,200,255,0.09); }
+    body  { background:#02060f; }
+
+    body::before {
+      content:''; position:fixed;
+      top:-180px; left:50%; transform:translateX(-50%);
+      width:800px; height:500px;
+      background:radial-gradient(ellipse, rgba(96,200,255,0.06) 0%, transparent 70%);
+      pointer-events:none; z-index:0;
+    }
+
+    .page-header__eyebrow,
+    .section-label { color:var(--accent); }
+    .page-header__title .hi { color:var(--accent); }
+
+    /* filter bar */
+    .filter-bar {
+      display:flex; flex-wrap:wrap; gap:8px; margin-bottom:38px;
+    }
+    .filter-btn {
+      background:#040c18; border:1px solid #0c1e32;
+      border-radius:20px; padding:5px 16px;
+      font-size:12px; font-weight:600;
+      color:#3a6080; font-family:var(--font-display);
+      cursor:pointer; letter-spacing:.04em;
+      transition:all .2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background:rgba(96,200,255,0.08);
+      border-color:rgba(96,200,255,0.35);
+      color:var(--accent);
+    }
+
+    /* grid */
+    .projects-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(460px, 1fr));
+      gap:20px;
+    }
+
+    /*
+    ┌─────────────────────────────────────────────┐
+    │  ADD A PROJECT                              │
+    │  Copy the <article class="pcard"> block,   │
+    │  paste inside .projects-grid, fill in.     │
+    └─────────────────────────────────────────────┘
+    */
+    .pcard {
+      background:#040c18; border:1px solid #0c1e32;
+      border-radius:16px; padding:26px 28px;
+      display:flex; flex-direction:column; gap:13px;
+      transition:border-color .25s, transform .25s, box-shadow .25s;
+      position:relative; z-index:1;
+    }
+    .pcard:hover {
+      border-color:rgba(96,200,255,0.28);
+      transform:translateY(-4px);
+      box-shadow:0 14px 40px rgba(96,200,255,0.07);
+    }
+    .pcard__header { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .pcard__tag {
+      background:#061020; border:1px solid #0d2035;
+      border-radius:4px; padding:2px 9px;
+      font-size:11px; font-weight:600;
+      color:#3a6888; text-transform:uppercase;
+      letter-spacing:.06em; font-family:var(--font-display);
+    }
+    .pcard__tag.hi {
+      background:rgba(96,200,255,0.09);
+      border-color:rgba(96,200,255,0.22); color:var(--accent);
+    }
+    .pcard__ext {
+      margin-left:auto; color:#1a4060; font-size:20px;
+      transition:color .2s;
+    }
+    .pcard__ext:hover { color:var(--accent); }
+    .pcard__title {
+      font-family:var(--font-display); font-size:19px;
+      font-weight:600; color:var(--white); letter-spacing:-.01em;
+    }
+    .pcard__desc { font-size:14px; color:#3a6070; line-height:1.7; flex:1; }
+    .pcard__footer {
+      display:flex; justify-content:space-between; align-items:center;
+      padding-top:13px; border-top:1px solid #0a1826;
+    }
+    .pcard__date { font-size:12px; color:#1a3850; font-family:var(--font-display); }
+    .pcard__gh {
+      display:inline-flex; align-items:center; gap:5px;
+      font-size:13px; color:#3a6070; font-weight:500;
+      transition:color .2s;
+    }
+    .pcard__gh:hover { color:var(--accent); }
+
+    @media(max-width:900px){ .projects-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="wave-wrapper"><canvas id="c" data-color="#60c8ff"></canvas></div>
+<script src="wave.js"></script>
+
+<div class="nav-sticky">
+  <nav class="iconbar theme-projects">
+    <a href="index.html"><i class="ti ti-home"></i><span class="label">Home</span></a>
+    <a href="projects.html" class="active"><i class="ti ti-layout-grid"></i><span class="label">Projects</span></a>
+    <a href="experience.html"><i class="ti ti-briefcase"></i><span class="label">Experience</span></a>
+    <a href="prodev.html"><i class="ti ti-rocket"></i><span class="label">Pro Dev</span></a>
+    <a href="contact.html"><i class="ti ti-send"></i><span class="label">Contact</span></a>
+  </nav>
+</div>
+
+<main>
+  <div class="page-header">
+    <p class="page-header__eyebrow reveal">What I've built</p>
+    <h1 class="page-header__title reveal">Pro<span class="hi">jects</span></h1>
+    <p class="page-header__sub reveal">
+      Things I've designed, engineered, and shipped — ML experiments, systems software, and tools.
+    </p>
+  </div>
+
+  <div class="section-inner">
+
+    <!-- Filter buttons — add categories by duplicating a .filter-btn -->
+    <div class="filter-bar reveal">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">ML / AI</button>
+      <button class="filter-btn">Systems</button>
+      <button class="filter-btn">Networks</button>
+      <button class="filter-btn">Tools</button>
+    </div>
+
+    <!--
+    ┌─────────────────────────────────────────────────────────────┐
+    │  ADD A PROJECT — copy this block into .projects-grid:       │
+    │                                                             │
+    │  <article class="pcard reveal">                            │
+    │    <div class="pcard__header">                             │
+    │      <span class="pcard__tag hi">ML / AI</span>            │
+    │      <span class="pcard__tag">Python</span>                │
+    │      <a href="LIVE_URL" class="pcard__ext" target="_blank">│
+    │        <i class="ti ti-arrow-up-right"></i></a>            │
+    │    </div>                                                   │
+    │    <h3 class="pcard__title">Project Name</h3>              │
+    │    <p class="pcard__desc">One-liner description.</p>       │
+    │    <div class="pcard__footer">                             │
+    │      <span class="pcard__date">Month Year</span>           │
+    │      <a href="GH_URL" class="pcard__gh" target="_blank">   │
+    │        <i class="ti ti-brand-github"></i> GitHub</a>       │
+    │    </div>                                                   │
+    │  </article>                                                 │
+    └─────────────────────────────────────────────────────────────┘
+    -->
+    <div class="projects-grid">
+
+      <article class="pcard reveal">
+        <div class="pcard__header">
+          <span class="pcard__tag hi">ML / AI</span>
+          <span class="pcard__tag">Python</span>
+          <span class="pcard__tag">PyTorch</span>
+          <a href="#" class="pcard__ext" target="_blank"><i class="ti ti-arrow-up-right"></i></a>
+        </div>
+        <h3 class="pcard__title">Project Alpha</h3>
+        <p class="pcard__desc">Replace with your real project description. What problem did you solve, how did you approach it, and what was the measurable outcome?</p>
+        <div class="pcard__footer">
+          <span class="pcard__date">Jan 2025</span>
+          <a href="#" class="pcard__gh" target="_blank"><i class="ti ti-brand-github"></i> GitHub</a>
+        </div>
+      </article>
+
+      <article class="pcard reveal">
+        <div class="pcard__header">
+          <span class="pcard__tag hi">Systems</span>
+          <span class="pcard__tag">C++</span>
+          <span class="pcard__tag">Linux</span>
+          <a href="#" class="pcard__ext" target="_blank"><i class="ti ti-arrow-up-right"></i></a>
+        </div>
+        <h3 class="pcard__title">Project Beta</h3>
+        <p class="pcard__desc">Replace with your real project description. What problem did you solve, how did you approach it, and what was the measurable outcome?</p>
+        <div class="pcard__footer">
+          <span class="pcard__date">Mar 2025</span>
+          <a href="#" class="pcard__gh" target="_blank"><i class="ti ti-brand-github"></i> GitHub</a>
+        </div>
+      </article>
+
+      <article class="pcard reveal">
+        <div class="pcard__header">
+          <span class="pcard__tag hi">Networks</span>
+          <span class="pcard__tag">Python</span>
+          <a href="#" class="pcard__ext" target="_blank"><i class="ti ti-arrow-up-right"></i></a>
+        </div>
+        <h3 class="pcard__title">Project Gamma</h3>
+        <p class="pcard__desc">Replace with your real project description. What problem did you solve, how did you approach it, and what was the measurable outcome?</p>
+        <div class="pcard__footer">
+          <span class="pcard__date">May 2025</span>
+          <a href="#" class="pcard__gh" target="_blank"><i class="ti ti-brand-github"></i> GitHub</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span>Ankit Verma &nbsp;/&nbsp; Ankito &nbsp;/&nbsp; Pralay</span>
+  <span>PES University &nbsp;·&nbsp; Bengaluru</span>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

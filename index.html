@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ankito — Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ══════════════════════════════════════════
+       HOME  ·  Theme: Silver-White on Pure Black
+       Wave color: #c8c8c8  (silver)
+       Accent: #e0e0e0 with red highlight
+       ══════════════════════════════════════════ */
+    :root {
+      --accent:     #e8e8e8;
+      --accent-dim: rgba(232,232,232,0.07);
+      --red:        #ff2020;
+    }
+    body { background: #030303; }
+
+    /* faint white glow top-center */
+    body::before {
+      content:''; position:fixed;
+      top:-180px; left:50%; transform:translateX(-50%);
+      width:800px; height:500px;
+      background:radial-gradient(ellipse, rgba(255,255,255,0.04) 0%, transparent 70%);
+      pointer-events:none; z-index:0;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: calc(100vh - 50px);
+      display: flex; align-items: center;
+      position: relative; z-index:1;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 80px 40px;
+      display: grid;
+      grid-template-columns: 1fr 290px;
+      gap: 80px; align-items: center; width:100%;
+    }
+
+    /* status pill */
+    .hero-status {
+      display: inline-flex; align-items: center; gap:8px;
+      background: rgba(74,222,128,0.08);
+      border: 1px solid rgba(74,222,128,0.35);
+      border-radius: 20px; padding: 5px 14px;
+      font-size:12px; font-weight:600;
+      color:#4ade80; letter-spacing:.07em; text-transform:uppercase;
+      margin-bottom:28px;
+    }
+    .hero-status::before {
+      content:''; width:6px; height:6px; border-radius:50%;
+      background:#4ade80; animation:pulse 2s infinite;
+    }
+
+    /* name */
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(56px, 9vw, 108px);
+      font-weight: 700; letter-spacing:-.04em; line-height:.92;
+      color: var(--white); margin-bottom:4px;
+    }
+    .hero-name .red { color: var(--red); }
+
+    /* nicknames */
+    .hero-nicknames {
+      font-family: var(--font-display);
+      font-size: clamp(13px,1.6vw,17px); font-weight:400;
+      color: var(--muted-light); letter-spacing:.01em;
+      margin-bottom:22px; margin-top:10px;
+    }
+    .hero-nicknames strong { color:var(--white); font-weight:600; }
+
+    /* role */
+    .hero-role {
+      font-family: var(--font-display);
+      font-size: clamp(14px,1.8vw,19px); font-weight:400;
+      color: var(--muted-light); margin-bottom:22px;
+    }
+    .hero-role span { color:var(--white); }
+
+    /* bio */
+    .hero-bio {
+      font-size:15px; color:var(--muted-light);
+      max-width:480px; line-height:1.75; margin-bottom:28px;
+    }
+
+    /* education chips */
+    .hero-edu { display:flex; flex-wrap:wrap; gap:9px; margin-bottom:32px; }
+    .edu-chip {
+      display:inline-flex; align-items:center; gap:7px;
+      background:#0a0a0a; border:1px solid #1c1c1c;
+      border-radius:8px; padding:6px 14px;
+      font-size:13px; color:var(--muted-light);
+      font-family:var(--font-display); font-weight:500;
+      transition: border-color .2s;
+    }
+    .edu-chip:hover { border-color:#333; }
+    .edu-chip i { color:var(--red); font-size:14px; }
+
+    /* skills */
+    .hero-skills { display:flex; flex-wrap:wrap; gap:8px; }
+    .skill-chip {
+      background:#090909; border:1px solid #1a1a1a;
+      border-radius:6px; padding:5px 13px;
+      font-size:12px; font-weight:500;
+      color:var(--muted-light); font-family:var(--font-display);
+      cursor:default; transition:border-color .2s, color .2s;
+    }
+    .skill-chip:hover { border-color:#3a3a3a; color:var(--white); }
+
+    /* photo */
+    .hero-photo {
+      position:relative; width:290px; flex-shrink:0;
+    }
+    /* silver gradient border */
+    .hero-photo::before {
+      content:''; position:absolute; inset:-2px;
+      border-radius:22px;
+      background:linear-gradient(135deg,#c0c0c0 0%,transparent 55%);
+      z-index:0;
+    }
+    .hero-photo img {
+      width:100%; aspect-ratio:3/4; object-fit:cover;
+      border-radius:20px; position:relative; z-index:1;
+    }
+    .hero-photo__badge {
+      position:absolute; bottom:16px; left:50%; transform:translateX(-50%);
+      z-index:2; background:rgba(0,0,0,0.82);
+      border:1px solid rgba(74,222,128,0.50);
+      border-radius:20px; padding:6px 15px;
+      font-size:12px; font-weight:600; color:#4ade80;
+      white-space:nowrap; display:flex; align-items:center; gap:6px;
+      backdrop-filter:blur(8px);
+    }
+    .hero-photo__badge::before {
+      content:''; width:6px; height:6px; border-radius:50%;
+      background:#4ade80; animation:pulse 2s infinite;
+    }
+
+    @media(max-width:900px){
+      .hero-inner { grid-template-columns:1fr; gap:44px; padding:60px 22px; }
+      .hero-photo  { width:220px; margin:0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Wave: silver/white on home -->
+<div class="wave-wrapper">
+  <canvas id="c" data-color="#b0b0b0"></canvas>
+</div>
+<script src="wave.js"></script>
+
+<!-- Navbar -->
+<div class="nav-sticky">
+  <nav class="iconbar theme-home">
+    <a href="index.html" class="active"><i class="ti ti-home"></i><span class="label">Home</span></a>
+    <a href="projects.html"><i class="ti ti-layout-grid"></i><span class="label">Projects</span></a>
+    <a href="experience.html"><i class="ti ti-briefcase"></i><span class="label">Experience</span></a>
+    <a href="prodev.html"><i class="ti ti-rocket"></i><span class="label">Pro Dev</span></a>
+    <a href="contact.html"><i class="ti ti-send"></i><span class="label">Contact</span></a>
+  </nav>
+</div>
+
+<main>
+  <section id="hero">
+    <div class="hero-inner">
+
+      <!-- LEFT: text -->
+      <div class="hero-text">
+
+        <div class="hero-status">Open to work</div>
+
+        <h1 class="hero-name">
+          Ankit<span class="red">.</span><br>Verma
+        </h1>
+
+        <!-- Known as -->
+        <p class="hero-nicknames">
+          also known as <strong>Ankito</strong> &amp; <strong>Pralay</strong>
+        </p>
+
+        <p class="hero-role">
+          <span>CS Engineer</span> &nbsp;·&nbsp; AI &amp; ML &nbsp;·&nbsp; Systems Thinker
+        </p>
+
+        <p class="hero-bio">
+          Tech enthusiast deep in Artificial Intelligence and Machine Learning.
+          I love exploring computer architecture, networks, and scalable systems —
+          applying geometric intuition and modular thinking to crack hard problems.
+        </p>
+
+        <!-- Education — add more .edu-chip as needed -->
+        <div class="hero-edu">
+          <span class="edu-chip"><i class="ti ti-building-community"></i>PES University &nbsp;·&nbsp; B.E. CSE</span>
+          <span class="edu-chip"><i class="ti ti-school"></i>KV Hebbal &nbsp;·&nbsp; Schooling</span>
+        </div>
+
+        <!-- Skills — add: <span class="skill-chip">Skill</span> -->
+        <div class="hero-skills">
+          <span class="skill-chip">Python</span>
+          <span class="skill-chip">Machine Learning</span>
+          <span class="skill-chip">Deep Learning</span>
+          <span class="skill-chip">PyTorch</span>
+          <span class="skill-chip">Computer Networks</span>
+          <span class="skill-chip">System Design</span>
+          <span class="skill-chip">C / C++</span>
+          <span class="skill-chip">Linux</span>
+          <span class="skill-chip">SQL</span>
+          <span class="skill-chip">Geometric Reasoning</span>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: photo -->
+      <div class="hero-photo">
+        <img src="portfolio-photo.png" alt="Ankit Verma — Ankito"/>
+        <div class="hero-photo__badge">Open to work</div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>Ankit Verma &nbsp;/&nbsp; Ankito &nbsp;/&nbsp; Pralay</span>
+  <span>PES University &nbsp;·&nbsp; Bengaluru, India</span>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

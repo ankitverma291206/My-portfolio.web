@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ankito — Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ══════════════════════════════════════════
+       EXPERIENCE  ·  Theme: Warm Amber / Dark Umber
+       Wave: #ffc152   BG: #080501
+       ══════════════════════════════════════════ */
+    :root { --accent:#ffc152; --accent-dim:rgba(255,193,82,0.09); }
+    body  { background:#080501; }
+
+    body::before {
+      content:''; position:fixed;
+      top:-180px; left:50%; transform:translateX(-50%);
+      width:800px; height:500px;
+      background:radial-gradient(ellipse, rgba(255,193,82,0.06) 0%, transparent 70%);
+      pointer-events:none; z-index:0;
+    }
+
+    .page-header__eyebrow, .section-label { color:var(--accent); }
+    .page-header__title .hi { color:var(--accent); }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:18px; margin-bottom:64px;
+    }
+    .edu-card {
+      background:#0e0900; border:1px solid #1c1100;
+      border-radius:14px; padding:24px 26px;
+      display:flex; gap:16px; align-items:flex-start;
+      transition:border-color .25s, transform .22s;
+    }
+    .edu-card:hover { border-color:rgba(255,193,82,0.22); transform:translateY(-3px); }
+    .edu-card__icon {
+      width:42px; height:42px; border-radius:10px;
+      background:rgba(255,193,82,0.08);
+      border:1px solid rgba(255,193,82,0.18);
+      display:flex; align-items:center; justify-content:center;
+      font-size:19px; color:var(--accent); flex-shrink:0;
+    }
+    .edu-card__school {
+      font-family:var(--font-display); font-size:16px;
+      font-weight:600; color:var(--white); margin-bottom:3px;
+    }
+    .edu-card__degree { font-size:13px; color:var(--accent); font-weight:500; margin-bottom:3px; }
+    .edu-card__years  { font-size:12px; color:#4a3010; font-family:var(--font-display); }
+
+    /* ── TIMELINE ── */
+    /*
+    ┌────────────────────────────────────────────────┐
+    │  ADD EXPERIENCE  — copy .exp-entry into        │
+    │  .timeline, fill in your details.              │
+    └────────────────────────────────────────────────┘
+    */
+    .timeline { display:flex; flex-direction:column; position:relative; }
+
+    /* vertical amber left rail */
+    .timeline::before {
+      content:''; position:absolute;
+      left:0; top:0; bottom:0; width:2px;
+      background:linear-gradient(to bottom, rgba(255,193,82,0.3) 0%, transparent 100%);
+    }
+
+    .exp-entry {
+      display:grid; grid-template-columns:170px 1fr;
+      gap:36px; padding:36px 0; padding-left:26px;
+      border-bottom:1px solid #100900;
+    }
+    .exp-entry:first-child { padding-top:0; }
+    .exp-entry:last-child  { border-bottom:none; }
+
+    /* amber dot on rail */
+    .exp-entry::before {
+      content:''; position:absolute;
+      left:-5px; top:40px; /* aligns with first entry */
+      width:12px; height:12px; border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 8px rgba(255,193,82,0.6);
+    }
+    .exp-entry:not(:first-child)::before { top:auto; }
+
+    .exp-entry__left { display:flex; flex-direction:column; gap:6px; padding-top:2px; }
+    .exp-entry__date { font-family:var(--font-display); font-size:12px; color:#5a3a10; font-weight:500; }
+    .exp-entry__type {
+      font-size:10px; font-weight:700; letter-spacing:.1em;
+      text-transform:uppercase; color:var(--accent);
+      background:rgba(255,193,82,0.08);
+      border:1px solid rgba(255,193,82,0.18);
+      border-radius:4px; padding:2px 8px; width:fit-content;
+    }
+
+    .exp-entry__role {
+      font-family:var(--font-display); font-size:19px;
+      font-weight:600; color:var(--white); margin-bottom:3px; letter-spacing:-.01em;
+    }
+    .exp-entry__company { font-size:13px; color:var(--accent); font-weight:500; margin-bottom:14px; }
+    .exp-entry__bullets { list-style:none; display:flex; flex-direction:column; gap:7px; margin-bottom:18px; }
+    .exp-entry__bullets li {
+      font-size:14px; color:#6a4a20; line-height:1.65;
+      padding-left:16px; position:relative;
+    }
+    .exp-entry__bullets li::before {
+      content:'—'; position:absolute; left:0;
+      color:var(--accent); font-weight:700;
+    }
+    .exp-entry__tags { display:flex; flex-wrap:wrap; gap:7px; }
+    .exp-entry__tag {
+      background:#0e0900; border:1px solid #1c1100;
+      border-radius:4px; padding:2px 9px;
+      font-size:10px; font-weight:600; color:#4a3010;
+      text-transform:uppercase; letter-spacing:.06em; font-family:var(--font-display);
+    }
+
+    @media(max-width:900px){
+      .edu-grid { grid-template-columns:1fr; }
+      .exp-entry { grid-template-columns:1fr; gap:8px; padding-left:20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wave-wrapper"><canvas id="c" data-color="#ffc152"></canvas></div>
+<script src="wave.js"></script>
+
+<div class="nav-sticky">
+  <nav class="iconbar theme-experience">
+    <a href="index.html"><i class="ti ti-home"></i><span class="label">Home</span></a>
+    <a href="projects.html"><i class="ti ti-layout-grid"></i><span class="label">Projects</span></a>
+    <a href="experience.html" class="active"><i class="ti ti-briefcase"></i><span class="label">Experience</span></a>
+    <a href="prodev.html"><i class="ti ti-rocket"></i><span class="label">Pro Dev</span></a>
+    <a href="contact.html"><i class="ti ti-send"></i><span class="label">Contact</span></a>
+  </nav>
+</div>
+
+<main>
+  <div class="page-header">
+    <p class="page-header__eyebrow reveal">My journey</p>
+    <h1 class="page-header__title reveal">Experi<span class="hi">ence</span></h1>
+    <p class="page-header__sub reveal">
+      Education at PES University and KV Hebbal, plus the work that's shaped how I think and build.
+    </p>
+  </div>
+
+  <div class="section-inner">
+
+    <!-- Education -->
+    <p class="section-label reveal">Education</p>
+    <!--
+      ADD EDUCATION — copy .edu-card into .edu-grid:
+      <div class="edu-card reveal">
+        <div class="edu-card__icon"><i class="ti ti-school"></i></div>
+        <div>
+          <p class="edu-card__school">School Name</p>
+          <p class="edu-card__degree">Degree / Stream</p>
+          <p class="edu-card__years">Year – Year</p>
+        </div>
+      </div>
+    -->
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-card__icon"><i class="ti ti-building-community"></i></div>
+        <div>
+          <p class="edu-card__school">PES University</p>
+          <p class="edu-card__degree">B.E. Computer Science Engineering</p>
+          <p class="edu-card__years">2022 – 2026 &nbsp;(Expected)</p>
+        </div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-card__icon"><i class="ti ti-school"></i></div>
+        <div>
+          <p class="edu-card__school">Kendriya Vidyalaya Hebbal</p>
+          <p class="edu-card__degree">PCM + Computer Science</p>
+          <p class="edu-card__years">Schooling &nbsp;·&nbsp; Bengaluru</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work Experience -->
+    <p class="section-label reveal" style="margin-bottom:32px">Work</p>
+    <!--
+    ┌─────────────────────────────────────────────────────────────┐
+    │  ADD EXPERIENCE — copy this block into .timeline:           │
+    │                                                             │
+    │  <div class="exp-entry reveal">                            │
+    │    <div class="exp-entry__left">                           │
+    │      <span class="exp-entry__date">Mon Year – Mon Year     │
+    │      </span>                                               │
+    │      <span class="exp-entry__type">Internship</span>       │
+    │    </div>                                                   │
+    │    <div class="exp-entry__right">                          │
+    │      <h3 class="exp-entry__role">Your Role</h3>            │
+    │      <p class="exp-entry__company">Company · Location</p>  │
+    │      <ul class="exp-entry__bullets">                       │
+    │        <li>What you did and the impact.</li>               │
+    │      </ul>                                                  │
+    │      <div class="exp-entry__tags">                         │
+    │        <span class="exp-entry__tag">Python</span>          │
+    │      </div>                                                 │
+    │    </div>                                                   │
+    │  </div>                                                     │
+    └─────────────────────────────────────────────────────────────┘
+    -->
+    <div class="timeline">
+
+      <div class="exp-entry reveal">
+        <div class="exp-entry__left">
+          <span class="exp-entry__date">Jan 2025 – Present</span>
+          <span class="exp-entry__type">Full-time</span>
+        </div>
+        <div class="exp-entry__right">
+          <h3 class="exp-entry__role">Machine Learning Engineer</h3>
+          <p class="exp-entry__company">Company Name &nbsp;·&nbsp; Bengaluru, India</p>
+          <ul class="exp-entry__bullets">
+            <li>Replace with a key responsibility or achievement — quantify impact where possible.</li>
+            <li>Mention the tools, scale, or outcomes that made this role stand out.</li>
+            <li>Third point if you have one.</li>
+          </ul>
+          <div class="exp-entry__tags">
+            <span class="exp-entry__tag">Python</span>
+            <span class="exp-entry__tag">PyTorch</span>
+            <span class="exp-entry__tag">AWS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-entry reveal">
+        <div class="exp-entry__left">
+          <span class="exp-entry__date">Jun 2024 – Dec 2024</span>
+          <span class="exp-entry__type">Internship</span>
+        </div>
+        <div class="exp-entry__right">
+          <h3 class="exp-entry__role">Software Engineering Intern</h3>
+          <p class="exp-entry__company">Another Company &nbsp;·&nbsp; Remote</p>
+          <ul class="exp-entry__bullets">
+            <li>Replace with a key responsibility or achievement — quantify impact where possible.</li>
+            <li>Mention the tools, scale, or outcomes that made this role stand out.</li>
+          </ul>
+          <div class="exp-entry__tags">
+            <span class="exp-entry__tag">C++</span>
+            <span class="exp-entry__tag">Linux</span>
+            <span class="exp-entry__tag">Networks</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span>Ankit Verma &nbsp;/&nbsp; Ankito &nbsp;/&nbsp; Pralay</span>
+  <span>PES University &nbsp;·&nbsp; Bengaluru</span>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

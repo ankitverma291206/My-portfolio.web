@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ankito — Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ══════════════════════════════════════════
+       CONTACT  ·  Theme: Rose Pink / Deep Plum
+       Wave: #ff7eb3   BG: #070104
+       ══════════════════════════════════════════ */
+    :root { --accent:#ff7eb3; --accent-dim:rgba(255,126,179,0.09); }
+    body  { background:#070104; }
+
+    body::before {
+      content:''; position:fixed;
+      top:-180px; left:50%; transform:translateX(-50%);
+      width:800px; height:500px;
+      background:radial-gradient(ellipse, rgba(255,126,179,0.07) 0%, transparent 70%);
+      pointer-events:none; z-index:0;
+    }
+
+    .page-header__eyebrow, .section-label { color:var(--accent); }
+    .page-header__title .hi { color:var(--accent); }
+
+    /* ── LAYOUT ── */
+    .contact-wrap {
+      display:grid; grid-template-columns:360px 1fr;
+      gap:64px; align-items:start;
+      position:relative; z-index:1;
+    }
+
+    /* Left panel */
+    .contact-bio {
+      font-size:15px; color:#5a2840;
+      line-height:1.8; margin-bottom:26px;
+    }
+    .contact-bio strong { color:var(--white); }
+
+    /* Status badge */
+    .status-badge {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(74,222,128,0.08);
+      border:1px solid rgba(74,222,128,0.30);
+      border-radius:20px; padding:7px 16px;
+      font-size:13px; font-weight:600; color:#4ade80;
+      letter-spacing:.04em; margin-bottom:32px;
+    }
+    .status-badge::before {
+      content:''; width:7px; height:7px; border-radius:50%;
+      background:#4ade80; animation:pulse 2s infinite;
+    }
+
+    /* Quick facts */
+    .contact-facts { display:flex; flex-direction:column; gap:10px; }
+    .cfact {
+      display:flex; align-items:center; gap:10px;
+      font-size:13px; color:#4a1830;
+    }
+    .cfact i { font-size:15px; color:var(--accent); width:18px; flex-shrink:0; }
+
+    /* Social links */
+    .contact-links { display:flex; flex-direction:column; gap:11px; }
+
+    /*
+    ┌──────────────────────────────────────────────────────────┐
+    │  ADD A SOCIAL LINK — copy one <a class="slink"> block,  │
+    │  paste inside .contact-links, update href, icon, name.   │
+    └──────────────────────────────────────────────────────────┘
+    */
+    .slink {
+      display:flex; align-items:center; gap:15px;
+      background:#0d0208; border:1px solid #180412;
+      border-radius:12px; padding:14px 18px;
+      transition:border-color .2s, transform .18s, background .2s;
+    }
+    .slink:hover {
+      border-color:rgba(255,126,179,0.25);
+      background:#100309; transform:translateX(5px);
+    }
+    .slink__icon {
+      width:38px; height:38px; border-radius:9px;
+      background:#140308; border:1px solid #200410;
+      display:flex; align-items:center; justify-content:center;
+      font-size:17px; color:#4a1830; flex-shrink:0;
+      transition:color .2s, border-color .2s;
+    }
+    .slink:hover .slink__icon { color:var(--accent); border-color:rgba(255,126,179,0.22); }
+    .slink__info { display:flex; flex-direction:column; gap:1px; flex:1; }
+    .slink__platform { font-family:var(--font-display); font-size:14px; font-weight:600; color:var(--white); }
+    .slink__handle   { font-size:12px; color:#3a1020; }
+    .slink__arr { color:#220810; font-size:15px; flex-shrink:0; transition:color .2s; }
+    .slink:hover .slink__arr { color:var(--accent); }
+
+    /* Email — accent highlighted -->*/
+    .slink--email {
+      background:rgba(255,126,179,0.07);
+      border-color:rgba(255,126,179,0.22);
+    }
+    .slink--email .slink__icon {
+      background:rgba(255,126,179,0.10);
+      border-color:rgba(255,126,179,0.25); color:var(--accent);
+    }
+    .slink--email .slink__platform { color:var(--accent); }
+    .slink--email .slink__handle { color:rgba(255,126,179,0.35); }
+    .slink--email:hover { border-color:rgba(255,126,179,0.50); }
+
+    @media(max-width:900px){
+      .contact-wrap { grid-template-columns:1fr; gap:44px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wave-wrapper"><canvas id="c" data-color="#ff7eb3"></canvas></div>
+<script src="wave.js"></script>
+
+<div class="nav-sticky">
+  <nav class="iconbar theme-contact">
+    <a href="index.html"><i class="ti ti-home"></i><span class="label">Home</span></a>
+    <a href="projects.html"><i class="ti ti-layout-grid"></i><span class="label">Projects</span></a>
+    <a href="experience.html"><i class="ti ti-briefcase"></i><span class="label">Experience</span></a>
+    <a href="prodev.html"><i class="ti ti-rocket"></i><span class="label">Pro Dev</span></a>
+    <a href="contact.html" class="active"><i class="ti ti-send"></i><span class="label">Contact</span></a>
+  </nav>
+</div>
+
+<main>
+  <div class="page-header">
+    <p class="page-header__eyebrow reveal">Say hello</p>
+    <h1 class="page-header__title reveal">Con<span class="hi">tact</span></h1>
+    <p class="page-header__sub reveal">
+      Open to new roles, research collabs, and interesting conversations. Find me on any platform below.
+    </p>
+  </div>
+
+  <div class="section-inner">
+    <div class="contact-wrap">
+
+      <!-- LEFT: identity + status + quick facts -->
+      <div class="contact-left reveal">
+        <p class="contact-bio">
+          I'm <strong>Ankit Verma</strong> — also known as
+          <strong>Ankito</strong> and <strong>Pralay</strong>.<br><br>
+          Currently studying Computer Science Engineering at
+          <strong>PES University</strong>, Bengaluru. Schooled at
+          <strong>KV Hebbal</strong>. Looking for roles in ML,
+          systems, or anything at the crossroads of the two.
+        </p>
+
+        <div class="status-badge">Open to work</div>
+
+        <div class="contact-facts">
+          <div class="cfact"><i class="ti ti-map-pin"></i>Bengaluru, Karnataka, India</div>
+          <div class="cfact"><i class="ti ti-building-community"></i>PES University — B.E. CSE</div>
+          <div class="cfact"><i class="ti ti-clock"></i>IST (UTC +5:30)</div>
+          <div class="cfact"><i class="ti ti-language"></i>English · Kannada · Hindi</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: social links -->
+      <!--
+      ┌─────────────────────────────────────────────────────────┐
+      │  ADD A LINK — copy one <a class="slink"> block:         │
+      │                                                         │
+      │  <a href="URL" target="_blank" class="slink">           │
+      │    <span class="slink__icon">                           │
+      │      <i class="ti ti-brand-ICON"></i></span>            │
+      │    <span class="slink__info">                           │
+      │      <span class="slink__platform">Platform</span>      │
+      │      <span class="slink__handle">handle/url</span>      │
+      │    </span>                                              │
+      │    <i class="ti ti-arrow-up-right slink__arr"></i>      │
+      │  </a>                                                   │
+      └─────────────────────────────────────────────────────────┘
+      -->
+      <div class="contact-links reveal">
+
+        <a href="https://linkedin.com/in/yourhandle" target="_blank" class="slink">
+          <span class="slink__icon"><i class="ti ti-brand-linkedin"></i></span>
+          <span class="slink__info">
+            <span class="slink__platform">LinkedIn</span>
+            <span class="slink__handle">linkedin.com/in/yourhandle</span>
+          </span>
+          <i class="ti ti-arrow-up-right slink__arr"></i>
+        </a>
+
+        <a href="https://github.com/yourusername" target="_blank" class="slink">
+          <span class="slink__icon"><i class="ti ti-brand-github"></i></span>
+          <span class="slink__info">
+            <span class="slink__platform">GitHub</span>
+            <span class="slink__handle">github.com/yourusername</span>
+          </span>
+          <i class="ti ti-arrow-up-right slink__arr"></i>
+        </a>
+
+        <a href="https://leetcode.com/yourusername" target="_blank" class="slink">
+          <span class="slink__icon"><i class="ti ti-code"></i></span>
+          <span class="slink__info">
+            <span class="slink__platform">LeetCode</span>
+            <span class="slink__handle">leetcode.com/yourusername</span>
+          </span>
+          <i class="ti ti-arrow-up-right slink__arr"></i>
+        </a>
+
+        <a href="https://instagram.com/yourusername" target="_blank" class="slink">
+          <span class="slink__icon"><i class="ti ti-brand-instagram"></i></span>
+          <span class="slink__info">
+            <span class="slink__platform">Instagram</span>
+            <span class="slink__handle">@yourusername</span>
+          </span>
+          <i class="ti ti-arrow-up-right slink__arr"></i>
+        </a>
+
+        <a href="https://open.spotify.com/user/yourspotifyid" target="_blank" class="slink">
+          <span class="slink__icon"><i class="ti ti-brand-spotify"></i></span>
+          <span class="slink__info">
+            <span class="slink__platform">Spotify</span>
+            <span class="slink__handle">open.spotify.com/user/yourspotifyid</span>
+          </span>
+          <i class="ti ti-arrow-up-right slink__arr"></i>
+        </a>
+
+        <a href="mailto:your@email.com" class="slink slink--email">
+          <span class="slink__icon"><i class="ti ti-mail"></i></span>
+          <span class="slink__info">
+            <span class="slink__platform">Email</span>
+            <span class="slink__handle">your@email.com</span>
+          </span>
+          <i class="ti ti-arrow-up-right slink__arr"></i>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span>Ankit Verma &nbsp;/&nbsp; Ankito &nbsp;/&nbsp; Pralay</span>
+  <span>PES University &nbsp;·&nbsp; Bengaluru</span>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>
