@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ankito — Pro Dev</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="styles.css" />
   <style>
     /* ══════════════════════════════════
        PRO DEV · Mint Green theme
        Wave: #5dffb0  BG: #040d07
        ══════════════════════════════════ */
-    :root { --accent: #5dffb0; }
-    body  { background: #040d07; }
-
-    body::before {
-      content: ''; position: fixed;
-      top: -200px; left: 50%; transform: translateX(-50%);
-      width: 900px; height: 500px;
-      background: radial-gradient(ellipse, rgba(93,255,176,0.06) 0%, transparent 65%);
-      pointer-events: none; z-index: 0;
+    :root {
+      --accent: #5dffb0;
     }
 
-    .page-header__eyebrow { color: var(--accent); }
-    .page-header__title .hi { color: var(--accent); }
-    .page-header__sub { color: #aaa; }
+    body {
+      background: #040d07;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(93, 255, 176, 0.06) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-header__eyebrow {
+      color: var(--accent);
+    }
+
+    .page-header__title .hi {
+      color: var(--accent);
+    }
+
+    .page-header__sub {
+      color: #aaa;
+    }
 
     /* ── GRID ── */
     .prodev-grid {
@@ -61,117 +82,160 @@
       border: 1px solid #0f2014;
       border-radius: 16px;
       overflow: hidden;
-      display: flex; flex-direction: column;
+      display: flex;
+      flex-direction: column;
       transition: border-color .25s, transform .25s, box-shadow .25s;
     }
+
     .pdcard:hover {
-      border-color: rgba(93,255,176,0.30);
+      border-color: rgba(93, 255, 176, 0.30);
       transform: translateY(-4px);
-      box-shadow: 0 16px 44px rgba(93,255,176,0.07);
+      box-shadow: 0 16px 44px rgba(93, 255, 176, 0.07);
     }
 
     /* ── PHOTO SLOT ── */
     .pdcard__photo {
-      width: 100%; aspect-ratio: 16/7;
+      width: 100%;
+      aspect-ratio: 16/7;
       overflow: hidden;
       background: #050f08;
       border-bottom: 1px solid #0f2014;
-      flex-shrink: 0; position: relative;
+      flex-shrink: 0;
+      position: relative;
     }
+
     .pdcard__photo img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       transition: transform .45s ease;
     }
-    .pdcard:hover .pdcard__photo img { transform: scale(1.05); }
+
+    .pdcard:hover .pdcard__photo img {
+      transform: scale(1.05);
+    }
 
     /* icon placeholder — visible now */
     .pdcard__photo--icon {
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 36px;
-      color: #1a4028;        /* ← was #0a2a14 (invisible), now softly visible */
+      color: #1a4028;
+      /* ← was #0a2a14 (invisible), now softly visible */
     }
 
     /* ── CARD BODY ── */
     .pdcard__body {
       padding: 20px 22px 24px;
-      display: flex; flex-direction: column; gap: 9px; flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      flex: 1;
     }
 
     .pdcard__top {
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+
     .pdcard__cat {
-      font-size: 10px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .12em;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
       color: var(--accent);
       font-family: var(--font-display);
-      background: rgba(93,255,176,0.09);
-      border: 1px solid rgba(93,255,176,0.22);
-      border-radius: 4px; padding: 2px 9px;
+      background: rgba(93, 255, 176, 0.09);
+      border: 1px solid rgba(93, 255, 176, 0.22);
+      border-radius: 4px;
+      padding: 2px 9px;
     }
+
     .pdcard__date {
       font-size: 11px;
-      color: #4a7a5a;        /* ← was #1a4025 (near-black), now readable */
+      color: #4a7a5a;
+      /* ← was #1a4025 (near-black), now readable */
       font-family: var(--font-display);
     }
 
     .pdcard__title {
       font-family: var(--font-display);
-      font-size: 15px; font-weight: 600;
-      color: #eee;           /* ← bright */
-      letter-spacing: -.01em; line-height: 1.35;
+      font-size: 15px;
+      font-weight: 600;
+      color: #eee;
+      /* ← bright */
+      letter-spacing: -.01em;
+      line-height: 1.35;
     }
 
     .pdcard__issuer {
       font-size: 13px;
-      color: #70aa88;        /* ← was #2a6040 (too dark), now clearly visible */
+      color: #70aa88;
+      /* ← was #2a6040 (too dark), now clearly visible */
       font-weight: 500;
     }
 
     .pdcard__desc {
       font-size: 13px;
-      color: #8aaa98;        /* ← was #1e4030 (invisible), now readable */
-      line-height: 1.65; flex: 1;
+      color: #8aaa98;
+      /* ← was #1e4030 (invisible), now readable */
+      line-height: 1.65;
+      flex: 1;
     }
 
     .pdcard__cta {
-      display: inline-flex; align-items: center; gap: 5px;
-      font-size: 12px; font-weight: 600;
-      color: var(--accent); opacity: .75;
-      margin-top: 4px; transition: opacity .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      opacity: .75;
+      margin-top: 4px;
+      transition: opacity .2s;
     }
-    .pdcard__cta:hover { opacity: 1; }
 
-    @media(max-width:900px) { .prodev-grid { grid-template-columns: 1fr; } }
+    .pdcard__cta:hover {
+      opacity: 1;
+    }
+
+    @media(max-width:900px) {
+      .prodev-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-<div class="wave-wrapper"><canvas id="c" data-color="#5dffb0"></canvas></div>
-<script src="wave.js"></script>
+  <div class="wave-wrapper"><canvas id="c" data-color="#5dffb0"></canvas></div>
+  <script src="wave.js"></script>
 
-<div class="nav-sticky">
-  <nav class="iconbar theme-prodev">
-    <a href="index.html"><i class="ti ti-home"></i><span class="label">Home</span></a>
-    <a href="projects.html"><i class="ti ti-layout-grid"></i><span class="label">Projects</span></a>
-    <a href="experience.html"><i class="ti ti-briefcase"></i><span class="label">Experience</span></a>
-    <a href="prodev.html" class="active"><i class="ti ti-rocket"></i><span class="label">Pro Dev</span></a>
-    <a href="contact.html"><i class="ti ti-send"></i><span class="label">Contact</span></a>
-  </nav>
-</div>
-
-<main>
-  <div class="page-header">
-    <p class="page-header__eyebrow reveal">Always learning</p>
-    <h1 class="page-header__title reveal">Pro<span class="hi">&nbsp;Dev</span></h1>
-    <p class="page-header__sub reveal">
-      Courses, certifications, workshops, and books that keep my skills sharp and my thinking current.
-    </p>
+  <div class="nav-sticky">
+    <nav class="iconbar theme-prodev">
+      <a href="index.html"><i class="ti ti-home"></i><span class="label">Home</span></a>
+      <a href="projects.html"><i class="ti ti-layout-grid"></i><span class="label">Projects</span></a>
+      <a href="experience.html"><i class="ti ti-briefcase"></i><span class="label">Experience</span></a>
+      <a href="prodev.html" class="active"><i class="ti ti-rocket"></i><span class="label">Pro Dev</span></a>
+      <a href="contact.html"><i class="ti ti-send"></i><span class="label">Contact</span></a>
+    </nav>
   </div>
 
-  <div class="section-inner">
+  <main>
+    <div class="page-header">
+      <p class="page-header__eyebrow reveal">Always learning</p>
+      <h1 class="page-header__title reveal">Pro<span class="hi">&nbsp;Dev</span></h1>
+      <p class="page-header__sub reveal">
+        Courses, certifications, workshops, and books that keep my skills sharp and my thinking current.
+      </p>
+    </div>
 
-    <!--
+    <div class="section-inner">
+
+      <!--
     ADD A CARD — copy this entire block into .prodev-grid:
 
     <div class="pdcard reveal">
@@ -181,7 +245,6 @@
       <div class="pdcard__body">
         <div class="pdcard__top">
           <span class="pdcard__cat">Certification</span>
-          <span class="pdcard__date">Mon Year</span>
         </div>
         <h3 class="pdcard__title">Title</h3>
         <p class="pdcard__issuer">Platform · Provider</p>
@@ -193,65 +256,89 @@
     </div>
     -->
 
-    <div class="prodev-grid">
 
-      <div class="pdcard reveal">
-        <div class="pdcard__photo pdcard__photo--icon">
-          <i class="ti ti-certificate"></i>
-        </div>
-        <div class="pdcard__body">
-          <div class="pdcard__top">
-            <span class="pdcard__cat">Certification</span>
-            <span class="pdcard__date">Mar 2025</span>
+
+      <div class="prodev-grid">
+
+        <div class="pdcard reveal">
+          <div class="pdcard__photo pdcard__photo--icon">
+            <i class="ti ti-certificate"></i>
           </div>
-          <h3 class="pdcard__title">Deep Learning Specialization</h3>
-          <p class="pdcard__issuer">Coursera &nbsp;·&nbsp; deeplearning.ai</p>
-          <p class="pdcard__desc">Five-course series covering neural networks, CNNs, sequence models, and ML strategy.</p>
-          <a href="#" class="pdcard__cta" target="_blank">View credential <i class="ti ti-arrow-up-right"></i></a>
-        </div>
-      </div>
-
-      <div class="pdcard reveal">
-        <div class="pdcard__photo pdcard__photo--icon">
-          <i class="ti ti-book"></i>
-        </div>
-        <div class="pdcard__body">
-          <div class="pdcard__top">
-            <span class="pdcard__cat">Book</span>
-            <span class="pdcard__date">Nov 2024</span>
+          <div class="pdcard__body">
+            <div class="pdcard__top">
+              <span class="pdcard__cat">Club</span>
+            </div>
+            <h3 class="pdcard__title">Joined Equinox</h3>
+            <p class="pdcard__issuer">College Club</p>
+            <p class="pdcard__desc">I’m happy to share that I’m starting a new position as Member of Operation team at
+              Equinox!</p>
+            <a href="https://www.kaggle.com/learn/certification/ankitoverma/pandas" class="pdcard__cta" target="_blank">View credential <i class="ti ti-arrow-up-right"></i>
+            </a>
           </div>
-          <h3 class="pdcard__title">Computer Networks: A Top-Down Approach</h3>
-          <p class="pdcard__issuer">Self-study &nbsp;·&nbsp; Kurose &amp; Ross</p>
-          <p class="pdcard__desc">Network layers, protocols, routing, and congestion control studied from first principles.</p>
-          <a href="#" class="pdcard__cta" target="_blank">View notes <i class="ti ti-arrow-up-right"></i></a>
         </div>
-      </div>
 
-      <div class="pdcard reveal">
-        <div class="pdcard__photo pdcard__photo--icon">
-          <i class="ti ti-presentation"></i>
-        </div>
-        <div class="pdcard__body">
-          <div class="pdcard__top">
-            <span class="pdcard__cat">Workshop</span>
-            <span class="pdcard__date">Sep 2024</span>
+        <div class="pdcard reveal">
+          <div class="pdcard__photo pdcard__photo--icon">
+            <img src="panda.png" alt="Panda">
           </div>
-          <h3 class="pdcard__title">System Design Fundamentals</h3>
-          <p class="pdcard__issuer">Internal Workshop &nbsp;·&nbsp; PES University</p>
-          <p class="pdcard__desc">Scalability, caching, load balancing, and distributed data stores through real case studies.</p>
-          <a href="#" class="pdcard__cta" target="_blank">View slides <i class="ti ti-arrow-up-right"></i></a>
+          <div class="pdcard__body">
+            <div class="pdcard__top">
+              <span class="pdcard__cat">Certification</span>
+            </div>
+            <h3 class="pdcard__title">Panda</h3>
+            <p class="pdcard__issuer">Panda &nbsp;·&nbsp; Kaggle</p>
+            <p class="pdcard__desc">Five-course series covering neural networks, CNNs, sequence models, and ML strategy.
+            </p>
+            <a href="#" class="pdcard__cta" target="_blank">View credential <i class="ti ti-arrow-up-right"></i></a>
+          </div>
         </div>
-      </div>
 
+        <div class="pdcard reveal">
+          <div class="pdcard__photo pdcard__photo--icon">
+            <img src="google-gen-ai.jpg" alt="Google GEN AI">
+          </div>
+          <div class="pdcard__body">
+            <div class="pdcard__top">
+              <span class="pdcard__cat">Conference</span>
+            </div>
+            <h3 class="pdcard__title">Computer Networks: A Top-Down Approach</h3>
+            <p class="pdcard__issuer">PES University &nbsp;·&nbsp; Google GEN AI</p>
+            <p class="pdcard__desc">It was an exciting deep dive into the future of LLMs and Agentic AI, packed with
+              hands-on learning and real-world insights.</p>
+            <a href="https://www.linkedin.com/posts/ankit-verma-a45154338_genai-agenticai-hack2skill-activity-7349686463644454912-Ojqu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFS9QdUBmbAHbc0hKZP0Fw4p_p4f3F74kgw"
+              class="pdcard__cta" target="_blank">View post<i class="ti ti-arrow-up-right"></i></a>
+          </div>
+        </div>
+
+        <div class="pdcard reveal">
+          <div class="pdcard__photo pdcard__photo--icon">
+            <img src="open-source-unlocked.jpg" alt="Open Source Unlocked">
+          </div>
+          <div class="pdcard__body">
+            <div class="pdcard__top">
+              <span class="pdcard__cat">Tech Event</span>
+            </div>
+            <h3 class="pdcard__title">Open Source Unlocked</h3>
+            <p class="pdcard__issuer">OS Code</p>
+            <p class="pdcard__desc">The conference concluded with a thought-evoking panel discussion with industry
+              professionals such as Akanksha Buchke, Navyaa Sharma, Mithun S, Anmol Varma, and Harsh Singh, who provided
+              insightful views on career development in tech, lifelong learning, and the potential of open-source
+              contributions.</p>
+            <a href="https://www.linkedin.com/posts/ankit-verma-a45154338_opensource-careergrowth-techcommunity-activity-7314444248248946689-nmT-?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFS9QdUBmbAHbc0hKZP0Fw4p_p4f3F74kgw"
+              class="pdcard__cta" target="_blank">View post<i class="ti ti-arrow-up-right"></i></a>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
-</main>
+  </main>
 
-<footer>
-  <span>Ankit Verma &nbsp;/&nbsp; Ankito &nbsp;/&nbsp; Pralay</span>
-  <span>PES University &nbsp;·&nbsp; Bengaluru</span>
-</footer>
+  <footer>
+    <span>Ankit Verma &nbsp;/&nbsp; Ankito &nbsp;/&nbsp; Pralay</span>
+    <span>PES University &nbsp;·&nbsp; Bengaluru</span>
+  </footer>
 
-<script src="nav.js"></script>
+  <script src="nav.js"></script>
 </body>
+
 </html>
