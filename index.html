@@ -1,5 +1,3 @@
-<!-- LINE 192 - REMOVE THE COMMENT -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,9 +83,10 @@
 
     /* bio */
     .hero-bio {
-      font-size:15px; color:var(--muted-light);
-      max-width:480px; line-height:1.75; margin-bottom:28px;
+      font-size:15.5px; color:#b3b3b3;
+      max-width:500px; line-height:1.8; margin-bottom:28px;
     }
+    .hero-bio strong { color:var(--white); font-weight:600; }
 
     /* education chips */
     .hero-edu { display:flex; flex-wrap:wrap; gap:9px; margin-bottom:32px; }
@@ -95,11 +94,11 @@
       display:inline-flex; align-items:center; gap:7px;
       background:#0a0a0a; border:1px solid #1c1c1c;
       border-radius:8px; padding:6px 14px;
-      font-size:13px; color:var(--muted-light);
+      font-size:13px; color:#c2c2c2;
       font-family:var(--font-display); font-weight:500;
-      transition: border-color .2s;
+      transition: border-color .2s, color .2s;
     }
-    .edu-chip:hover { border-color:#333; }
+    .edu-chip:hover { border-color:#333; color:var(--white); }
     .edu-chip i { color:var(--red); font-size:14px; }
 
     /* skills */
@@ -108,7 +107,7 @@
       background:#090909; border:1px solid #1a1a1a;
       border-radius:6px; padding:5px 13px;
       font-size:12px; font-weight:500;
-      color:var(--muted-light); font-family:var(--font-display);
+      color:#c2c2c2; font-family:var(--font-display);
       cursor:default; transition:border-color .2s, color .2s;
     }
     .skill-chip:hover { border-color:#3a3a3a; color:var(--white); }
@@ -185,21 +184,13 @@
           also known as <strong>Ankito</strong> &amp; <strong>Pralay</strong>
         </p>
 
-      
-
-
-
-
-        <!-- <p class="hero-role">
+        <p class="hero-role">
           <span>CS Engineer</span> &nbsp;·&nbsp; AI &amp; ML
-        </p> -->
-
-
-
-
+        </p>
 
         <p class="hero-bio">
           Tech enthusiast deep in Artificial Intelligence and Machine Learning.
+          A big time believer of the line <strong>"If you don't talk about it, it doesn't mean that the problem is solved".</strong>
           I love exploring computer architecture, networks, and scalable systems —
           applying geometric intuition and modular thinking to crack hard problems.
         </p>
