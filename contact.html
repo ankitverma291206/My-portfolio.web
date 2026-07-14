@@ -20,9 +20,9 @@
     /* very faint pink bloom top-center */
     body::before {
       content: ''; position: fixed;
-      top: -200px; left: 50%; transform: translateX(-50%);
-      width: 900px; height: 500px;
-      background: radial-gradient(ellipse, rgba(255,126,179,0.07) 0%, transparent 65%);
+      top: -240px; left: 50%; transform: translateX(-50%);
+      width: clamp(900px, 68vw, 1600px); height: clamp(500px, 38vw, 900px);
+      background: radial-gradient(ellipse, rgba(255,126,179,0.095) 0%, transparent 65%);
       pointer-events: none; z-index: 0;
     }
 

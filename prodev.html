@@ -28,12 +28,12 @@
     body::before {
       content: '';
       position: fixed;
-      top: -200px;
+      top: -240px;
       left: 50%;
       transform: translateX(-50%);
-      width: 900px;
-      height: 500px;
-      background: radial-gradient(ellipse, rgba(93, 255, 176, 0.06) 0%, transparent 65%);
+      width: clamp(900px, 68vw, 1600px);
+      height: clamp(500px, 38vw, 900px);
+      background: radial-gradient(ellipse, rgba(93, 255, 176, 0.085) 0%, transparent 65%);
       pointer-events: none;
       z-index: 0;
     }
