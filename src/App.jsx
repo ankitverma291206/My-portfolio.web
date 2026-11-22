@@ -10,7 +10,6 @@ import {
 import {
   ArrowDown,
   ArrowDownRight,
-  ArrowRight,
   ArrowUpRight,
   BrainCircuit,
   BriefcaseBusiness,
@@ -18,7 +17,6 @@ import {
   ExternalLink,
   Globe,
   GraduationCap,
-  Mail,
   MapPin,
   Menu,
   Orbit,
@@ -198,95 +196,6 @@ function Lightbox({ item, onClose }) {
   );
 }
 
-function MessageForm() {
-  const [values, setValues] = useState({ name: '', email: '', message: '' });
-  const [honeypot, setHoneypot] = useState('');
-  const [status, setStatus] = useState('idle');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const updateValue = (field) => (event) => {
-    setValues((current) => ({ ...current, [field]: event.target.value }));
-    if (status === 'success' || status === 'error') {
-      setStatus('idle');
-      setErrorMessage('');
-    }
-  };
-
-  async function handleSubmit(event) {
-    event.preventDefault();
-    if (status === 'sending') return;
-    setStatus('sending');
-    setErrorMessage('');
-
-    const sender = {
-      name: values.name.trim(),
-      email: values.email.trim(),
-      message: values.message.trim(),
-    };
-
-    try {
-      const response = await fetch('/api/messages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        credentials: 'same-origin',
-        body: JSON.stringify({ ...sender, website: honeypot.trim() }),
-      });
-      const result = await response.json().catch(() => null);
-      if (!result) {
-        throw new Error('The message service returned an unreadable response. Please try again.');
-      }
-      if (!response.ok || result.ok !== true) {
-        throw new Error(typeof result.error === 'string' ? result.error : `The message could not be saved (HTTP ${response.status}).`);
-      }
-      setValues({ name: '', email: '', message: '' });
-      setStatus('success');
-    } catch (error) {
-      setErrorMessage(error instanceof TypeError
-        ? 'Could not reach the message service. Check your connection and make sure the full server is running.'
-        : error.message || 'The message service could not complete the request.');
-      setStatus('error');
-    }
-  }
-
-  return (
-    <form className="message-form" onSubmit={handleSubmit} aria-busy={status === 'sending'}>
-      <label className="message-honeypot" aria-hidden="true">Leave this field empty
-        <input name="website" type="text" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(event) => setHoneypot(event.target.value)} />
-      </label>
-      <div className="message-field">
-        <label htmlFor="message-name">Your name</label>
-        <input id="message-name" name="name" type="text" autoComplete="name" maxLength={80} placeholder="Ankit Sharma" required value={values.name} onChange={updateValue('name')} />
-      </div>
-      <div className="message-field">
-        <label htmlFor="message-email">Your email</label>
-        <input id="message-email" name="email" type="email" autoComplete="email" maxLength={254} placeholder="you@example.com" required value={values.email} onChange={updateValue('email')} />
-      </div>
-      <div className="message-field message-field--wide">
-        <label htmlFor="message-body">Message</label>
-        <textarea id="message-body" name="message" rows={5} minLength={8} maxLength={3000} placeholder="What would you like to talk about?" required value={values.message} onChange={updateValue('message')} />
-      </div>
-      <div className="message-form-footer">
-        <button className="button button--solid message-submit" type="submit" disabled={status === 'sending'}>
-          {status === 'sending' ? 'Sending…' : 'Send message'} <ArrowUpRight size={16} />
-        </button>
-        <p className="message-privacy">Saved to a private inbox. Your email is used only if I reply.</p>
-      </div>
-      {status === 'success' && <div className="message-feedback message-feedback--success" role="status" aria-live="polite"><strong>Message sent</strong><span>Thanks for reaching out. I’ll get back to you soon.</span></div>}
-      {status === 'error' && (
-        <div className="message-feedback message-feedback--error" role="alert" aria-live="assertive">
-          <strong>Message couldn’t be sent</strong>
-          <span>{errorMessage}</span>
-          <p>You can also reach me directly by email.</p>
-          <a href={`mailto:${contactEmail}`}>Email me directly <ArrowUpRight size={13} /></a>
-        </div>
-      )}
-    </form>
-  );
-}
-
 function App() {
   const [active, setActive] = useState('home');
   const [filter, setFilter] = useState('all');
@@ -407,14 +316,6 @@ function App() {
             <div className="contact-panel-orbit" aria-hidden="true"><span /><span /><span /></div>
             <div className="contact-main-copy"><Eyebrow light>Open channel · Bengaluru, India</Eyebrow><h2>Let’s make<br /><em>something matter.</em></h2><p>Have an interesting problem, a research idea, or an opportunity at the intersection of AI and systems? I’m all ears.</p><a className="button button--paper" href={`mailto:${contactEmail}`}>{contactEmail} <ArrowUpRight size={17} /></a></div>
             <div className="contact-side"><span className="contact-side-label">ELSEWHERE</span>{socials.map((item) => <a key={item.label} href={item.href} target="_blank" rel="noreferrer"><span>{item.label}<small>{item.detail}</small></span><ArrowUpRight size={16} /></a>)}<div className="contact-clock"><span><MapPin size={14} /> Bengaluru · IST</span><span>English / Hindi</span></div></div>
-          </Reveal>
-          <Reveal className="message-card" delay={0.12}>
-            <div className="message-intro">
-              <Eyebrow>Leave a note</Eyebrow>
-              <h3>Have something<br /><em>on your mind?</em></h3>
-              <p>Leave a note in my private inbox. Include your email if you’d like me to get back to you.</p>
-            </div>
-            <MessageForm />
           </Reveal>
         </section>
       </main>

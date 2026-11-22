@@ -244,37 +244,6 @@ img { display: block; max-width: 100%; }
 .contact-side > a { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(245,240,232,.1); color: var(--paper); font-size: 12px; }.contact-side > a:hover { color: var(--coral); }.contact-side > a > span { display: flex; flex-direction: column; }.contact-side small { margin-top: 2px; color: #aaa1b0; font-size: 10px; }
 .contact-clock { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 0 5px; color: #a69dac; font: 9px var(--mono); }.contact-clock span:first-child { display: flex; align-items: center; gap: 5px; }
 .contact-panel-orbit { position: absolute; right: 27%; bottom: -280px; width: 540px; height: 540px; border: 1px solid rgba(173,145,255,.12); border-radius: 50%; }.contact-panel-orbit span { position: absolute; inset: 35px; border: 1px solid rgba(255,112,83,.11); border-radius: inherit; }.contact-panel-orbit span:nth-child(2) { inset: 85px; }.contact-panel-orbit span:nth-child(3) { inset: 135px; border-color: rgba(173,145,255,.13); }
-.message-card { position: relative; display: grid; grid-template-columns: .78fr 1.22fr; align-items: start; gap: clamp(28px,5vw,70px); overflow: hidden; margin-top: 16px; padding: clamp(27px,4.5vw,56px); border: 1px solid var(--line); border-radius: 16px; background: radial-gradient(ellipse at 0% 100%,rgba(173,145,255,.09),transparent 40%),linear-gradient(145deg,#15121d,#0d0b12); }
-.message-card::before { position: absolute; top: 0; right: 0; width: 36%; height: 1px; content: ""; background: linear-gradient(90deg,transparent,var(--violet),transparent); opacity: .7; }
-.message-intro, .message-form { position: relative; z-index: 1; }
-.message-intro h3 { margin: 18px 0 14px; font-size: clamp(32px,4.1vw,52px); font-weight: 600; line-height: .98; letter-spacing: -.07em; }
-.message-intro h3 em { color: var(--violet); font-style: normal; }
-.message-intro > p { max-width: 300px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
-.message-form { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 15px; }
-.message-honeypot { position: absolute; top: auto; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
-.message-honeypot input { width: 1px; height: 1px; }
-.message-field { display: flex; min-width: 0; flex-direction: column; gap: 7px; }
-.message-field--wide { grid-column: 1 / -1; }
-.message-field label { color: #d8cedc; font: 10px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
-.message-field input, .message-field textarea { width: 100%; border: 1px solid rgba(226,218,241,.15); border-radius: 9px; outline: 0; background: rgba(7,6,11,.74); color: var(--paper); font: 12px var(--display); transition: border-color .2s,background .2s,box-shadow .2s; }
-.message-field input { min-height: 46px; padding: 0 13px; }
-.message-field textarea { min-height: 132px; padding: 12px 13px; resize: vertical; line-height: 1.65; }
-.message-field input::placeholder, .message-field textarea::placeholder { color: #958c9f; }
-.message-field input:focus, .message-field textarea:focus { border-color: rgba(173,145,255,.7); background: rgba(9,8,14,.95); box-shadow: 0 0 0 3px rgba(173,145,255,.1); }
-.message-form-footer { display: flex; grid-column: 1 / -1; align-items: center; justify-content: space-between; gap: 16px; }
-.message-submit { cursor: pointer; }
-.message-submit:disabled { opacity: .62; cursor: wait; transform: none; }
-.message-privacy { margin: 0; color: var(--quiet); font-size: 11px; }
-.message-feedback { display: grid; grid-column: 1 / -1; grid-template-columns: 27px minmax(0,1fr); align-items: start; gap: 4px 11px; margin: -3px 0 0; padding: 13px 15px; border: 1px solid; border-radius: 10px; font-size: 13px; line-height: 1.55; }
-.message-feedback::before { display: grid; grid-column: 1; grid-row: 1 / span 3; width: 25px; height: 25px; place-items: center; border-radius: 50%; font: 700 13px var(--display); }
-.message-feedback strong, .message-feedback span, .message-feedback p, .message-feedback a { grid-column: 2; }
-.message-feedback strong { color: var(--paper); font-size: 13px; }
-.message-feedback p { margin: 2px 0 0; color: #d2c9d4; font-size: 11px; }
-.message-feedback a { display: inline-flex; width: fit-content; align-items: center; gap: 3px; margin-top: 3px; color: var(--paper); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-.message-feedback--success { border-color: rgba(185,255,145,.3); background: rgba(185,255,145,.07); color: #d3ffc0; }
-.message-feedback--success::before { content: "✓"; background: rgba(185,255,145,.14); color: #c5ffa8; }
-.message-feedback--error { border-color: rgba(255,112,83,.38); background: rgba(255,112,83,.09); color: #ffd0c7; }
-.message-feedback--error::before { content: "!"; background: rgba(255,112,83,.17); color: #ffb5a6; }
 .site-footer { display: flex; min-height: 87px; align-items: center; justify-content: space-between; gap: 18px; border-top: 1px solid var(--line-soft); color: var(--quiet); font: 9px var(--mono); letter-spacing: .07em; }
 .footer-signature { color: var(--paper); font: 600 12px var(--display); letter-spacing: .08em; }.footer-signature span { color: var(--coral); }
 .back-top { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); }.back-top:hover { color: var(--coral); }
@@ -342,11 +311,6 @@ img { display: block; max-width: 100%; }
   .contact-panel { grid-template-columns: 1fr; gap: 35px; padding: 27px 22px; }
   .contact-main-copy h2 { font-size: clamp(48px,13vw,72px); }
   .contact-side { padding-inline: 15px; }
-  .message-card { grid-template-columns: 1fr; gap: 25px; padding: 25px 20px; }
-  .message-intro h3 { font-size: clamp(35px,10vw,48px); }
-  .message-form { grid-template-columns: 1fr; gap: 13px; }
-  .message-field--wide, .message-form-footer, .message-feedback { grid-column: 1; }
-  .message-form-footer { align-items: flex-start; flex-direction: column; }
   .site-footer { min-height: 106px; flex-wrap: wrap; justify-content: space-between; padding-block: 18px; }.site-footer > span { order: 3; width: 100%; }
   .lightbox { padding: 13px; }.lightbox-panel { max-height: 90svh; grid-template-columns: 1fr; }.lightbox-panel > img { max-height: 67svh; }.lightbox-caption { min-height: 110px; padding: 15px; }.lightbox-caption strong { font-size: 16px; }
 }

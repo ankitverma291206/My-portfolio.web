@@ -4,21 +4,6 @@ dist/
 .vite/
 .vercel/
 
-# Local configuration and secrets
-.env
-.env.*
-!.env.example
-*.pem
-*.key
-.secrets/
-
-# Local database files and exports
-*.sqlite
-*.sqlite3
-*.db
-*.dump
-*.sql.gz
-
 # Logs and operating-system metadata
 *.log
 logs/
