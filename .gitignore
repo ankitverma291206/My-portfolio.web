@@ -1,4 +1,29 @@
+# Package managers and generated builds
 node_modules/
 dist/
 .vite/
+.vercel/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.secrets/
+
+# Local database files and exports
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.sql.gz
+
+# Logs and operating-system metadata
 *.log
+logs/
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+.DS_Store
+Thumbs.db

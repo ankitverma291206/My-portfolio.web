@@ -225,33 +225,27 @@ function MessageForm() {
     };
 
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${contactEmail}`, {
+      const response = await fetch('/api/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify({
-          ...sender,
-          _honey: honeypot.trim(),
-          _replyto: sender.email,
-          _subject: `Portfolio message from ${sender.name}`,
-          _template: 'table',
-        }),
+        credentials: 'same-origin',
+        body: JSON.stringify({ ...sender, website: honeypot.trim() }),
       });
       const result = await response.json().catch(() => null);
       if (!result) {
-        throw new Error('The email service returned an unreadable response. Please try again.');
+        throw new Error('The message service returned an unreadable response. Please try again.');
       }
-      if (!response.ok || result.success === false || result.success === 'false') {
-        const providerMessage = typeof result.message === 'string' ? result.message.trim().slice(0, 180) : '';
-        throw new Error(providerMessage || `The email service rejected the request (HTTP ${response.status}).`);
+      if (!response.ok || result.ok !== true) {
+        throw new Error(typeof result.error === 'string' ? result.error : `The message could not be saved (HTTP ${response.status}).`);
       }
       setValues({ name: '', email: '', message: '' });
       setStatus('success');
     } catch (error) {
       setErrorMessage(error instanceof TypeError
-        ? 'Could not reach FormSubmit. Check your internet connection and make sure the site is running through pnpm dev, not opened as a local HTML file.'
+        ? 'Could not reach the message service. Check your connection and make sure the full server is running.'
         : error.message || 'The message service could not complete the request.');
       setStatus('error');
     }
@@ -260,7 +254,7 @@ function MessageForm() {
   return (
     <form className="message-form" onSubmit={handleSubmit} aria-busy={status === 'sending'}>
       <label className="message-honeypot" aria-hidden="true">Leave this field empty
-        <input name="_honey" type="text" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(event) => setHoneypot(event.target.value)} />
+        <input name="website" type="text" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(event) => setHoneypot(event.target.value)} />
       </label>
       <div className="message-field">
         <label htmlFor="message-name">Your name</label>
@@ -278,14 +272,14 @@ function MessageForm() {
         <button className="button button--solid message-submit" type="submit" disabled={status === 'sending'}>
           {status === 'sending' ? 'Sending…' : 'Send message'} <ArrowUpRight size={16} />
         </button>
-        <p className="message-privacy">Your email is included so I can reply.</p>
+        <p className="message-privacy">Saved to a private inbox. Your email is used only if I reply.</p>
       </div>
       {status === 'success' && <div className="message-feedback message-feedback--success" role="status" aria-live="polite"><strong>Message sent</strong><span>Thanks for reaching out. I’ll get back to you soon.</span></div>}
       {status === 'error' && (
         <div className="message-feedback message-feedback--error" role="alert" aria-live="assertive">
           <strong>Message couldn’t be sent</strong>
           <span>{errorMessage}</span>
-          <p>If this is your first submission, check your inbox and spam folder for FormSubmit’s activation email.</p>
+          <p>You can also reach me directly by email.</p>
           <a href={`mailto:${contactEmail}`}>Email me directly <ArrowUpRight size={13} /></a>
         </div>
       )}
@@ -418,7 +412,7 @@ function App() {
             <div className="message-intro">
               <Eyebrow>Leave a note</Eyebrow>
               <h3>Have something<br /><em>on your mind?</em></h3>
-              <p>Send a message directly to my inbox. Add your email so I can get back to you.</p>
+              <p>Leave a note in my private inbox. Include your email if you’d like me to get back to you.</p>
             </div>
             <MessageForm />
           </Reveal>
