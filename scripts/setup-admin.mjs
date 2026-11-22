@@ -63,8 +63,8 @@ async function main() {
       throw new Error('Use 3–60 letters, numbers, periods, underscores, or hyphens for the username.');
     }
 
-    const password = await readInput('Choose a unique password (minimum 24 characters): ', true);
-    if (password.length < 24 || password.length > 256) throw new Error('The password must be between 24 and 256 characters. Use a password manager to generate a random one.');
+    const password = await readInput('Choose a unique password (minimum 10 characters): ', true);
+    if (password.length < 10 || password.length > 256) throw new Error('The password must be between 10 and 256 characters. A longer random password is safer.');
     const confirmation = await readInput('Confirm password: ', true);
     if (password !== confirmation) throw new Error('The passwords do not match. Run the setup again.');
 

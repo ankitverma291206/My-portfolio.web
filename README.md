@@ -36,7 +36,7 @@ Run this in an interactive PowerShell terminal. This command uses Node directly,
 node scripts/setup-admin.mjs
 ```
 
-Choose a username and a unique password of at least 24 characters. Use a password manager to generate a random password; the prompt masks what you type. The script generates a per-password salt, an OWASP-aligned scrypt hash using a 32 MiB work factor, and a random session secret, then saves `ADMIN_USERNAME`, `ADMIN_PASSWORD_HASH`, and `SESSION_SECRET` in `.env.local`. It never writes the plain password to a file. If you generated credentials before this stronger setting, rerun the setup and update the Vercel values if you had already copied them there.
+Choose a username and a unique password of at least 10 characters. Longer random passwords are safer; the prompt masks what you type. The script generates a per-password salt, an OWASP-aligned scrypt hash using a 32 MiB work factor, and a random session secret, then saves `ADMIN_USERNAME`, `ADMIN_PASSWORD_HASH`, and `SESSION_SECRET` in `.env.local`. It never writes the plain password to a file.
 
 For the live Vercel project, add these four environment variables in **Project Settings → Environment Variables**:
 
